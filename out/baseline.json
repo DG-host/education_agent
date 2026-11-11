@@ -1,0 +1,56 @@
+{
+  "version": "0.1.0",
+  "raw": {
+    "dataset": "作答记录.csv",
+    "sha256": "fb055bdcb0e83524f6e02c42713c9cf580a8c490a7fa609c31ab7b3ec43cf2be",
+    "rows": 806,
+    "anomaly_records": 7,
+    "anomaly_ids": [
+      "DR0081",
+      "DR0133",
+      "DR0361",
+      "DR0515",
+      "DR0535",
+      "DR0555",
+      "DR0685"
+    ],
+    "rule_hits": {
+      "QC01": 0,
+      "QC02": 0,
+      "QC03": 0,
+      "QC04": 2,
+      "QC05": 0,
+      "QC06": 0,
+      "QC07": 3,
+      "QC08": 0,
+      "QC09": 1,
+      "QC10": 1,
+      "QC11": 0,
+      "QC12": 0,
+      "QC13": 0,
+      "QC14": 0,
+      "QC15": 0,
+      "QC16": 0,
+      "QC17": 0,
+      "QC18": 1,
+      "QC19": 1
+    },
+    "status_counts": {
+      "已评分": 795,
+      "待评分": 6,
+      "未作答": 5
+    }
+  },
+  "clean": {
+    "dataset": "作答记录_清洗版.csv",
+    "sha256": "125de05daa0606ce517110a8a866a98112f0cb2e2b14388cb4eba8310699fe25",
+    "rows": 806,
+    "anomaly_records": 0,
+    "anomaly_ids": []
+  },
+  "assertions": {
+    "raw_detects_expected": true,
+    "clean_is_zero": true,
+    "same_row_count": true
+  }
+}

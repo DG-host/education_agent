@@ -1,0 +1,245 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-11-11T14:41:26+08:00",
+  "source": {
+    "dataset": "作答记录_清洗版.csv",
+    "dataset_sha256": "125de05daa0606ce517110a8a866a98112f0cb2e2b14388cb4eba8310699fe25",
+    "pipeline": "qc.py v0.1.0（清洗版输入 → 修订版本折叠 → 按节点/指标聚合）"
+  },
+  "data_scope": {
+    "records": 799,
+    "students": 40,
+    "groups": 2,
+    "nodes": [
+      "N01",
+      "N02"
+    ],
+    "scoring_status_counts": {
+      "已评分": 795,
+      "待评分": 6,
+      "未作答": 5
+    }
+  },
+  "student_level": [
+    {
+      "student_id": "D01",
+      "group_id": "DC01",
+      "observed": {
+        "records": 22,
+        "scored": 21,
+        "pending": 0,
+        "unanswered": 1,
+        "coverage": {
+          "N01": 0.4444,
+          "N02": 0.2222
+        }
+      },
+      "score_rate": {
+        "overall": 0.4865,
+        "by_node": {
+          "N01": 0.5417,
+          "N02": 0.3846
+        }
+      },
+      "by_indicator": [
+        {
+          "indicator_id": "T01I1",
+          "observed": 4,
+          "correct": 2,
+          "rate": 0.5,
+          "confidence": "low"
+        },
+        {
+          "indicator_id": "T01I2",
+          "observed": 1,
+          "correct": 0,
+          "rate": 0.0,
+          "confidence": "low"
+        },
+        {
+          "indicator_id": "T01I3",
+          "observed": 3,
+          "correct": 0,
+          "rate": 0.0,
+          "confidence": "low"
+        },
+        {
+          "indicator_id": "T02I1",
+          "observed": 5,
+          "correct": 2,
+          "rate": 0.4,
+          "confidence": "medium"
+        },
+        {
+          "indicator_id": "T02I2",
+          "observed": 1,
+          "correct": 0,
+          "rate": 0.0,
+          "confidence": "low"
+        },
+        {
+          "indicator_id": "T02I3",
+          "observed": 1,
+          "correct": 1,
+          "rate": 1.0,
+          "confidence": "low"
+        },
+        {
+          "indicator_id": "T03I1",
+          "observed": 4,
+          "correct": 1,
+          "rate": 0.25,
+          "confidence": "low"
+        },
+        {
+          "indicator_id": "T03I2",
+          "observed": 2,
+          "correct": 1,
+          "rate": 0.5,
+          "confidence": "low"
+        }
+      ],
+      "flags": [
+        "unanswered_items"
+      ],
+      "evidence_refs": [
+        "DR0001",
+        "DR0002",
+        "DR0003",
+        "DR0004",
+        "DR0005"
+      ],
+      "notes": "抽样作答：仅在作答记录覆盖范围内可判断，未观测不推断为未掌握。"
+    }
+  ],
+  "group_level": {
+    "by_class": [
+      {
+        "group_id": "DC01",
+        "students": 21,
+        "records": 427,
+        "coverage_mean": 0.2989,
+        "score_rate_mean": 0.5758
+      },
+      {
+        "group_id": "DC02",
+        "students": 19,
+        "records": 372,
+        "coverage_mean": 0.2873,
+        "score_rate_mean": 0.5447
+      }
+    ],
+    "by_indicator": [
+      {
+        "indicator_id": "T01I1",
+        "observed": 125,
+        "correct": 57,
+        "rate": 0.456,
+        "students_observed": 38,
+        "confidence": "high"
+      },
+      {
+        "indicator_id": "T01I2",
+        "observed": 188,
+        "correct": 115,
+        "rate": 0.6117,
+        "students_observed": 40,
+        "confidence": "high"
+      },
+      {
+        "indicator_id": "T01I3",
+        "observed": 40,
+        "correct": 8,
+        "rate": 0.2,
+        "students_observed": 26,
+        "confidence": "high"
+      },
+      {
+        "indicator_id": "T02I1",
+        "observed": 116,
+        "correct": 56,
+        "rate": 0.4828,
+        "students_observed": 38,
+        "confidence": "high"
+      },
+      {
+        "indicator_id": "T02I2",
+        "observed": 97,
+        "correct": 50,
+        "rate": 0.5155,
+        "students_observed": 36,
+        "confidence": "high"
+      },
+      {
+        "indicator_id": "T02I3",
+        "observed": 57,
+        "correct": 25,
+        "rate": 0.4386,
+        "students_observed": 33,
+        "confidence": "high"
+      },
+      {
+        "indicator_id": "T03I1",
+        "observed": 69,
+        "correct": 38,
+        "rate": 0.5507,
+        "students_observed": 30,
+        "confidence": "high"
+      },
+      {
+        "indicator_id": "T03I2",
+        "observed": 70,
+        "correct": 45,
+        "rate": 0.6429,
+        "students_observed": 32,
+        "confidence": "high"
+      },
+      {
+        "indicator_id": "T03I3",
+        "observed": 28,
+        "correct": 11,
+        "rate": 0.3929,
+        "students_observed": 20,
+        "confidence": "high"
+      }
+    ],
+    "by_topic": [
+      {
+        "topic_id": "T01",
+        "observed": 353,
+        "rate": 0.5099,
+        "confidence": "high"
+      },
+      {
+        "topic_id": "T02",
+        "observed": 270,
+        "rate": 0.4852,
+        "confidence": "high"
+      },
+      {
+        "topic_id": "T03",
+        "observed": 167,
+        "rate": 0.5629,
+        "confidence": "high"
+      }
+    ]
+  },
+  "quality": {
+    "status": "pass_with_warnings",
+    "anomalies_detected": 7,
+    "anomalies_fixed": 7,
+    "anomaly_list_path": "data/derived/作答记录_异常清单.csv",
+    "policy": {
+      "修订版本": "同一作答事件编号只取最高版本，旧版本不参与计分",
+      "待评分与未作答": "不填补、不记 0，单独计数并在覆盖度中体现",
+      "跨节点比较": "N01 与 N02 可用题目范围不同，节点均分不可直接比较",
+      "置信度": "同一指标有效观测少于 5 条时只给 low"
+    }
+  },
+  "limitations": [
+    "记录为抽样作答而非全员全题：覆盖度按节点可用题目数计，未观测不等于未掌握。",
+    "N01 与 N02 的可用题目集合不同（27 / 45 题），跨节点均分不可比，只能看指标层趋势。",
+    "模拟数据不含作答时长与帮助记录，无法据此判断投入程度或猜测行为。",
+    "群体层结论以两个模拟班级为口径，不代表真实学校或真实年级分布。"
+  ]
+}

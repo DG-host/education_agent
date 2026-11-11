@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "recommendation.schema.json",
+  "title": "recommendation v0.1.0 — 个性化学习建议",
+  "description": "任务3产出：每条建议必须挂材料编号与证据编号，且 hint_level 不允许出现直接给答案。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "student_id", "basis", "items", "not_recommended", "next_check"],
+  "properties": {
+    "schema_version": { "const": "0.1.0" },
+    "generated_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\+\\d{2}:\\d{2}|Z)$" },
+    "student_id": { "type": "string", "pattern": "^D\\d{2}$" },
+    "basis": {
+      "type": "array",
+      "minItems": 1,
+      "description": "本条建议所依赖的诊断事实，每条一句话，须可被 diagnosis 复核",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["seq", "material_id", "action", "reason", "evidence_refs", "hint_level", "expected_observation", "adjust_condition"],
+        "properties": {
+          "seq": { "type": "integer", "minimum": 1 },
+          "material_id": { "type": "string", "pattern": "^(Q\\d{3}|[BL]\\d{2})$" },
+          "action": { "type": "string", "enum": ["review", "practice", "variant", "observe"] },
+          "reason": { "type": "string", "minLength": 1, "description": "为什么给这个材料：指向具体指标与具体表现，不得写通用鼓励语" },
+          "evidence_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "pattern": "^(DR\\d{4}|T0[1-3]I[1-9]|N\\d{2})$" }
+          },
+          "hint_level": { "type": "string", "enum": ["提示", "分步提示", "不给答案"] },
+          "expected_observation": { "type": "string", "minLength": 1, "description": "做完应观察到什么，用于判断是否达成" },
+          "adjust_condition": { "type": "string", "minLength": 1, "description": "什么情况下调整建议（改成更易/更难/转补充观测）" }
+        }
+      }
+    },
+    "not_recommended": {
+      "type": "array",
+      "description": "明确不给的材料及理由，用于回应“为什么不是全都练一遍”",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["material_id", "reason"],
+        "properties": {
+          "material_id": { "type": "string", "pattern": "^(Q\\d{3}|[BL]\\d{2})$" },
+          "reason": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "next_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["when", "what"],
+      "properties": {
+        "when": { "type": "string", "minLength": 1 },
+        "what": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

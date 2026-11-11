@@ -1,0 +1,916 @@
+{
+  "schema_version": "0.1.0",
+  "source": {
+    "curriculum_requirements": "课程要求.csv",
+    "materials": "题目与材料.csv",
+    "nodes": "测验节点.csv",
+    "files": {
+      "课程要求.csv": "1a2e43dad2d9741e2c30268a56b4ae1d0905fa63e5ced871e138ea921a02cf11",
+      "题目与材料.csv": "787147c2610c6cee7a4424af46e6fa469c3dd7d496392fe139becd8f433acb19",
+      "测验节点.csv": "4eba902326d9e22582b162f345f67abfe1c6dc3efae1e208717c0cc8e782ff0b",
+      "作答记录.csv": "fb055bdcb0e83524f6e02c42713c9cf580a8c490a7fa609c31ab7b3ec43cf2be"
+    }
+  },
+  "topics": [
+    {
+      "topic_id": "T01",
+      "topic": "代数式与整式运算",
+      "goal": "能用代数式表示简单数量关系、代入求值，并进行整式加减与解释。",
+      "indicators": [
+        {
+          "indicator_id": "T01I1",
+          "observation": "表示数量关系并代入求值",
+          "standard": {
+            "cr_id": "CR01",
+            "pdf_pages": "62",
+            "body_pages": "55"
+          },
+          "textbook_pages": "上册68—109",
+          "material_ids": [
+            "L01",
+            "Q001",
+            "Q002",
+            "Q006",
+            "Q007",
+            "Q013",
+            "Q014"
+          ],
+          "evidence_required": [
+            "作答记录",
+            "评分点得分",
+            "节点可用题目",
+            "教材切片"
+          ]
+        },
+        {
+          "indicator_id": "T01I2",
+          "observation": "识别同类项、去括号并化简",
+          "standard": {
+            "cr_id": "CR01",
+            "pdf_pages": "62",
+            "body_pages": "55"
+          },
+          "textbook_pages": "上册68—109",
+          "material_ids": [
+            "L01",
+            "Q003",
+            "Q004",
+            "Q005",
+            "Q008",
+            "Q009",
+            "Q010",
+            "Q012",
+            "Q015",
+            "Q016",
+            "Q017"
+          ],
+          "evidence_required": [
+            "作答记录",
+            "评分点得分",
+            "节点可用题目",
+            "教材切片"
+          ]
+        },
+        {
+          "indicator_id": "T01I3",
+          "observation": "用整式解释具体问题",
+          "standard": {
+            "cr_id": "CR01",
+            "pdf_pages": "62",
+            "body_pages": "55"
+          },
+          "textbook_pages": "上册68—109",
+          "material_ids": [
+            "L01",
+            "Q011",
+            "Q018"
+          ],
+          "evidence_required": [
+            "作答记录",
+            "评分点得分",
+            "节点可用题目",
+            "教材切片"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "T02",
+      "topic": "方程与方程组",
+      "goal": "能解一元一次方程和二元一次方程组，依据等量关系建立模型并检验答案。",
+      "indicators": [
+        {
+          "indicator_id": "T02I1",
+          "observation": "运用等式性质解一元一次方程",
+          "standard": {
+            "cr_id": "CR02",
+            "pdf_pages": "63",
+            "body_pages": "56"
+          },
+          "textbook_pages": "上册110—148；下册87—119",
+          "material_ids": [
+            "L02",
+            "Q019",
+            "Q020",
+            "Q021",
+            "Q022",
+            "Q023",
+            "Q024",
+            "Q025",
+            "Q026"
+          ],
+          "evidence_required": [
+            "作答记录",
+            "评分点得分",
+            "节点可用题目",
+            "教材切片"
+          ]
+        },
+        {
+          "indicator_id": "T02I2",
+          "observation": "用消元法解二元一次方程组",
+          "standard": {
+            "cr_id": "CR02",
+            "pdf_pages": "63",
+            "body_pages": "56"
+          },
+          "textbook_pages": "上册110—148；下册87—119",
+          "material_ids": [
+            "L02",
+            "Q028",
+            "Q029",
+            "Q030",
+            "Q031",
+            "Q032",
+            "Q035"
+          ],
+          "evidence_required": [
+            "作答记录",
+            "评分点得分",
+            "节点可用题目",
+            "教材切片"
+          ]
+        },
+        {
+          "indicator_id": "T02I3",
+          "observation": "列方程或方程组解决简单实际问题并检验",
+          "standard": {
+            "cr_id": "CR02",
+            "pdf_pages": "63",
+            "body_pages": "56"
+          },
+          "textbook_pages": "上册110—148；下册87—119",
+          "material_ids": [
+            "L02",
+            "Q027",
+            "Q033",
+            "Q034",
+            "Q036"
+          ],
+          "evidence_required": [
+            "作答记录",
+            "评分点得分",
+            "节点可用题目",
+            "教材切片"
+          ]
+        }
+      ]
+    },
+    {
+      "topic_id": "T03",
+      "topic": "不等式与不等式组",
+      "goal": "能解一元一次不等式及简单不等式组，表示解集，并解决范围约束问题。",
+      "indicators": [
+        {
+          "indicator_id": "T03I1",
+          "observation": "运用不等式性质求解，负数乘除时正确改变方向",
+          "standard": {
+            "cr_id": "CR03",
+            "pdf_pages": "63",
+            "body_pages": "56"
+          },
+          "textbook_pages": "下册120—145",
+          "material_ids": [
+            "L03",
+            "Q037",
+            "Q038",
+            "Q039",
+            "Q040",
+            "Q041",
+            "Q042",
+            "Q043"
+          ],
+          "evidence_required": [
+            "作答记录",
+            "评分点得分",
+            "节点可用题目",
+            "教材切片"
+          ]
+        },
+        {
+          "indicator_id": "T03I2",
+          "observation": "求两个一元一次不等式解集的交集",
+          "standard": {
+            "cr_id": "CR03",
+            "pdf_pages": "63",
+            "body_pages": "56"
+          },
+          "textbook_pages": "下册120—145",
+          "material_ids": [
+            "L03",
+            "Q044",
+            "Q045",
+            "Q046",
+            "Q047",
+            "Q048",
+            "Q049",
+            "Q053"
+          ],
+          "evidence_required": [
+            "作答记录",
+            "评分点得分",
+            "节点可用题目",
+            "教材切片"
+          ]
+        },
+        {
+          "indicator_id": "T03I3",
+          "observation": "根据实际限制列不等式并解释取值范围",
+          "standard": {
+            "cr_id": "CR03",
+            "pdf_pages": "63",
+            "body_pages": "56"
+          },
+          "textbook_pages": "下册120—145",
+          "material_ids": [
+            "L03",
+            "Q050",
+            "Q051",
+            "Q052",
+            "Q054"
+          ],
+          "evidence_required": [
+            "作答记录",
+            "评分点得分",
+            "节点可用题目",
+            "教材切片"
+          ]
+        }
+      ]
+    }
+  ],
+  "materials_index": [
+    {
+      "material_id": "Q001",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q002",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q003",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "选择题",
+      "max_score": 1,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q004",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q005",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q006",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q007",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q008",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q009",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q010",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q011",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q012",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q013",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q014",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q015",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q016",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q017",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q018",
+      "type": "题目",
+      "topic_id": "T01",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N01",
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q019",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01"
+      ]
+    },
+    {
+      "material_id": "Q020",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01"
+      ]
+    },
+    {
+      "material_id": "Q021",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "选择题",
+      "max_score": 1,
+      "node_scope": [
+        "N01"
+      ]
+    },
+    {
+      "material_id": "Q022",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N01"
+      ]
+    },
+    {
+      "material_id": "Q023",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01"
+      ]
+    },
+    {
+      "material_id": "Q024",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01"
+      ]
+    },
+    {
+      "material_id": "Q025",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N01"
+      ]
+    },
+    {
+      "material_id": "Q026",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01"
+      ]
+    },
+    {
+      "material_id": "Q027",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N01"
+      ]
+    },
+    {
+      "material_id": "Q028",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q029",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q030",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q031",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q032",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q033",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q034",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q035",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q036",
+      "type": "题目",
+      "topic_id": "T02",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q037",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q038",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q039",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q040",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q041",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q042",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q043",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q044",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "选择题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q045",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q046",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q047",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q048",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q049",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q050",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q051",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q052",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q053",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "填空题",
+      "max_score": 1,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "Q054",
+      "type": "题目",
+      "topic_id": "T03",
+      "question_type": "解答题",
+      "max_score": 3,
+      "node_scope": [
+        "N02"
+      ]
+    },
+    {
+      "material_id": "L01",
+      "type": "学习卡",
+      "topic_id": "T01",
+      "question_type": null,
+      "max_score": null,
+      "node_scope": []
+    },
+    {
+      "material_id": "L02",
+      "type": "学习卡",
+      "topic_id": "T02",
+      "question_type": null,
+      "max_score": null,
+      "node_scope": []
+    },
+    {
+      "material_id": "L03",
+      "type": "学习卡",
+      "topic_id": "T03",
+      "question_type": null,
+      "max_score": null,
+      "node_scope": []
+    },
+    {
+      "material_id": "B01",
+      "type": "教材",
+      "topic_id": null,
+      "question_type": null,
+      "max_score": null,
+      "node_scope": []
+    },
+    {
+      "material_id": "B02",
+      "type": "教材",
+      "topic_id": null,
+      "question_type": null,
+      "max_score": null,
+      "node_scope": []
+    },
+    {
+      "material_id": "B03",
+      "type": "教材",
+      "topic_id": null,
+      "question_type": null,
+      "max_score": null,
+      "node_scope": []
+    },
+    {
+      "material_id": "B04",
+      "type": "教材",
+      "topic_id": null,
+      "question_type": null,
+      "max_score": null,
+      "node_scope": []
+    },
+    {
+      "material_id": "B05",
+      "type": "教材",
+      "topic_id": null,
+      "question_type": null,
+      "max_score": null,
+      "node_scope": []
+    },
+    {
+      "material_id": "B06",
+      "type": "教材",
+      "topic_id": null,
+      "question_type": null,
+      "max_score": null,
+      "node_scope": []
+    },
+    {
+      "material_id": "B07",
+      "type": "教材",
+      "topic_id": null,
+      "question_type": null,
+      "max_score": null,
+      "node_scope": []
+    },
+    {
+      "material_id": "B08",
+      "type": "教材",
+      "topic_id": null,
+      "question_type": null,
+      "max_score": null,
+      "node_scope": []
+    }
+  ],
+  "open_questions": [
+    "8 份材料在材料表中没有指标编号（B01、B02、B03、B04、B05、B06、B07、B08），指标归属需内容官按切片正文人工判定后回填。",
+    "11 份材料未被任何测验节点纳入（L01、L02、L03、B01、B02、B03、B04、B05、B06、B07、B08），只能作为学习建议材料，不能作为学情证据。",
+    "课标页码已按「PDF 页/正文页」拆分，答辩前需与课程标准原文逐条核对。",
+    "学习卡 L 系列覆盖同主题全部指标，属复习型材料，不计入得分统计。"
+  ]
+}

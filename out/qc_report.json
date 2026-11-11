@@ -1,0 +1,192 @@
+{
+  "dataset": "作答记录.csv",
+  "path": "data/raw/作答记录.csv",
+  "sha256": "fb055bdcb0e83524f6e02c42713c9cf580a8c490a7fa609c31ab7b3ec43cf2be",
+  "bytes": 102089,
+  "rows": 806,
+  "columns": 14,
+  "has_bom": true,
+  "crlf": true,
+  "unique_records": 806,
+  "unique_events": 799,
+  "revisions_folded": 7,
+  "anomaly_records": 7,
+  "structural": [],
+  "rule_hits": {
+    "QC01": 0,
+    "QC02": 0,
+    "QC03": 0,
+    "QC04": 2,
+    "QC05": 0,
+    "QC06": 0,
+    "QC07": 3,
+    "QC08": 0,
+    "QC09": 1,
+    "QC10": 1,
+    "QC11": 0,
+    "QC12": 0,
+    "QC13": 0,
+    "QC14": 0,
+    "QC15": 0,
+    "QC16": 0,
+    "QC17": 0,
+    "QC18": 1,
+    "QC19": 1
+  },
+  "findings": [
+    {
+      "record_id": "DR0081",
+      "student_id": "D04",
+      "material_id": "Q017",
+      "node_id": "N01",
+      "revision": "1",
+      "rules": [
+        {
+          "code": "QC09",
+          "field": "主题编号",
+          "expected": "T01",
+          "actual": "T02",
+          "note": "材料 Q017 的主题"
+        }
+      ],
+      "rule_codes": [
+        "QC09"
+      ]
+    },
+    {
+      "record_id": "DR0133",
+      "student_id": "D07",
+      "material_id": "Q015",
+      "node_id": "N01",
+      "revision": "1",
+      "rules": [
+        {
+          "code": "QC07",
+          "field": "评分点得分",
+          "expected": "求和=3",
+          "actual": "求和=2",
+          "note": "明细 Q015P1=1；Q015P2=1；Q015P3=0"
+        }
+      ],
+      "rule_codes": [
+        "QC07"
+      ]
+    },
+    {
+      "record_id": "DR0361",
+      "student_id": "D16",
+      "material_id": "Q044",
+      "node_id": "N02",
+      "revision": "1",
+      "rules": [
+        {
+          "code": "QC04",
+          "field": "得分",
+          "expected": "0 <= 得分 <= 1",
+          "actual": "10",
+          "note": ""
+        },
+        {
+          "code": "QC07",
+          "field": "评分点得分",
+          "expected": "求和=10",
+          "actual": "求和=1",
+          "note": "明细 Q044P1=1"
+        }
+      ],
+      "rule_codes": [
+        "QC04",
+        "QC07"
+      ]
+    },
+    {
+      "record_id": "DR0515",
+      "student_id": "D25",
+      "material_id": "Q038",
+      "node_id": "N01",
+      "revision": "1",
+      "rules": [
+        {
+          "code": "QC10",
+          "field": "材料编号",
+          "expected": "属于 N01 可用题目",
+          "actual": "Q038",
+          "note": ""
+        }
+      ],
+      "rule_codes": [
+        "QC10"
+      ]
+    },
+    {
+      "record_id": "DR0535",
+      "student_id": "D26",
+      "material_id": "Q034",
+      "node_id": "N02",
+      "revision": "1",
+      "rules": [
+        {
+          "code": "QC04",
+          "field": "得分",
+          "expected": "0 <= 得分 <= 3",
+          "actual": "4",
+          "note": ""
+        },
+        {
+          "code": "QC07",
+          "field": "评分点得分",
+          "expected": "求和=4",
+          "actual": "求和=3",
+          "note": "明细 Q034P1=1；Q034P2=1；Q034P3=1"
+        }
+      ],
+      "rule_codes": [
+        "QC04",
+        "QC07"
+      ]
+    },
+    {
+      "record_id": "DR0555",
+      "student_id": "D27",
+      "material_id": "Q049",
+      "node_id": "N02",
+      "revision": "1",
+      "rules": [
+        {
+          "code": "QC19",
+          "field": "学生最终作答",
+          "expected": "[('2', '≤'), ('3', '')]",
+          "actual": "[('2', '<'), ('3', '')]",
+          "note": "解集端点方向与参考答案相反"
+        }
+      ],
+      "rule_codes": [
+        "QC19"
+      ]
+    },
+    {
+      "record_id": "DR0685",
+      "student_id": "D34",
+      "material_id": "Q017",
+      "node_id": "N01",
+      "revision": "1",
+      "rules": [
+        {
+          "code": "QC18",
+          "field": "得分",
+          "expected": "1",
+          "actual": "0",
+          "note": "作答与参考答案一致"
+        }
+      ],
+      "rule_codes": [
+        "QC18"
+      ]
+    }
+  ],
+  "status_counts": {
+    "已评分": 795,
+    "待评分": 6,
+    "未作答": 5
+  }
+}

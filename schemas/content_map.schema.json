@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "content_map.schema.json",
+  "title": "content_map v0.1.0 — 学习内容与要求梳理",
+  "description": "任务1产出：主题→指标→材料索引。所有编号沿用赛题原始编号，禁止自造 ID。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "source", "topics", "materials_index", "open_questions"],
+  "properties": {
+    "schema_version": { "const": "0.1.0" },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["curriculum_requirements", "materials", "nodes", "files"],
+      "properties": {
+        "curriculum_requirements": { "type": "string", "minLength": 1, "description": "课程要求来源文件名" },
+        "materials": { "type": "string", "minLength": 1 },
+        "nodes": { "type": "string", "minLength": 1 },
+        "files": {
+          "type": "object",
+          "description": "文件名 → 64 位 sha256，用于证明梳理所依据的原始件未被改动",
+          "minProperties": 1,
+          "additionalProperties": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "topics": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["topic_id", "topic", "goal", "indicators"],
+        "properties": {
+          "topic_id": { "type": "string", "pattern": "^T0[1-3]$" },
+          "topic": { "type": "string", "minLength": 1 },
+          "goal": { "type": "string", "minLength": 1 },
+          "indicators": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["indicator_id", "observation", "standard", "textbook_pages", "material_ids", "evidence_required"],
+              "properties": {
+                "indicator_id": { "type": "string", "pattern": "^T0[1-3]I[1-9]$" },
+                "observation": { "type": "string", "minLength": 1, "description": "观察指标原文，不得改写" },
+                "standard": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["cr_id", "pdf_pages", "body_pages"],
+                  "properties": {
+                    "cr_id": { "type": "string", "pattern": "^CR\\d{2}$" },
+                    "pdf_pages": { "type": "string", "minLength": 1, "description": "课标 PDF 页码" },
+                    "body_pages": { "type": "string", "minLength": 1, "description": "课标正文页码" }
+                  }
+                },
+                "textbook_pages": { "type": "string", "minLength": 1 },
+                "material_ids": {
+                  "type": "array",
+                  "items": { "type": "string", "pattern": "^(Q\\d{3}|[BL]\\d{2})$" }
+                },
+                "evidence_required": {
+                  "type": "array",
+                  "minItems": 1,
+                  "description": "判断该指标是否需要观测证据；缺证据时 diagnosis 必须给 low confidence 而非判未掌握",
+                  "items": { "type": "string", "enum": ["作答记录", "评分点得分", "节点可用题目", "教材切片"] }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "materials_index": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["material_id", "type", "topic_id", "max_score", "node_scope"],
+        "properties": {
+          "material_id": { "type": "string", "pattern": "^(Q\\d{3}|[BL]\\d{2})$" },
+          "type": { "type": "string", "enum": ["题目", "教材", "学习卡"] },
+          "topic_id": { "anyOf": [{ "type": "string", "pattern": "^T0[1-3]$" }, { "type": "null" }],
+            "description": "null = 材料表中未标注主题（如教材切片），须进 open_questions 待人工归属" },
+          "question_type": { "type": ["string", "null"], "enum": ["填空题", "选择题", "解答题", null] },
+          "max_score": { "type": ["integer", "null"], "minimum": 0 },
+          "node_scope": {
+            "type": "array",
+            "description": "该材料在哪些测验节点可用；空数组=任何节点都未纳入，不能当证据",
+            "items": { "type": "string", "pattern": "^N\\d{2}$" }
+          }
+        }
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "description": "尚未定稿、需人工裁决的条目（课标页码待核、材料归属存疑等）",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}
