@@ -142,7 +142,7 @@ def main(argv=None):
     write_json(args.out, doc)
 
     rows = matrix_rows(doc)
-    write_csv(os.path.join(TABLES, "content_matrix_draft.csv"),
+    write_csv(os.path.join(OUT, "content_matrix_draft.csv"),
               ["材料编号", "主题编号", "材料类型", "题型", "满分", "指标编号", "归属状态", "可用节点", "需人工复核"],
               rows)
 
