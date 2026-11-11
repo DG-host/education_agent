@@ -1,0 +1,4 @@
+# 关掉行尾自动转换：data/raw 的字节哈希是验收项（SHA256SUMS），换行被改写就等于换数据。
+* -text
+*.ps1 -text
+*.cmd -text
