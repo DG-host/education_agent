@@ -15,6 +15,9 @@ run.cmd validate        :: 只校验契约
 run.cmd clean           :: 清空 out/ 再跑
 ```
 
+> 本机/校园网 HTTPS 推 GitHub 若报 `CRYPT_E_NO_REVOCATION_CHECK`（证书吊销列表拉取失败），
+> 在仓库内执行 `git config http.schannelCheckRevoke false` 即可；这是网络环境问题，不是仓库问题。
+
 解释器优先级：`$env:PYTHON` → DSH 自带 python（含 pandas / jsonschema）→ PATH 上的 python。
 不需要 pip install，不引入第三方运行时依赖（`pandas` 仅质检脚本可选使用）。
 

@@ -2,5 +2,9 @@ __pycache__/
 *.pyc
 _tmp/
 .venv/
+.idea/
 Thumbs.db
 desktop.ini
+
+# 每次 run 都会刷新 generated_at 的诊断全量产物：可重建，不入库
+out/diagnosis_all.json
