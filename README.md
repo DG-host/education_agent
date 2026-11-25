@@ -93,11 +93,13 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\build_desktop.ps1
 ## 公开演示（只读静态站点）
 
 `demo/` 是工作台的静态副本：把 `ui/` 与一次 `out/` 快照（`snapshot.json`）打包，不需要 Python 或本地服务，
-可直接放到 raw.githack / jsDelivr 等静态托管上，Mac 与手机浏览器都能看。
+由 GitHub Pages 发布，Mac 与手机浏览器都能看。
 
 ```text
-https://raw.githack.com/DG-host/education_agent/main/demo/index.html
+https://dg-host.github.io/education_agent/
 ```
+
+Pages workflow 只上传 `demo/` 制品，不发布仓库根目录；更新 `demo/` 后推送到 `main` 会自动重新部署。
 
 - 只开放总览、学生画像、典型案例、内容图谱、数据质量五页；“数据录入”与“教学咨询”在演示版隐藏，访问时显示“此页需要本地版”。
 - 没有后端写接口，没有 `/api/run`；“重新分析”隐藏，刷新只重读同一份 `snapshot.json`。

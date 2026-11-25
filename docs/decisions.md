@@ -177,8 +177,8 @@
 - **理由**：静态托管零运维、跨平台、无 Key 泄露面；页面与本地工作台同源，演示与截图不会“两套 UI”。
 - **代价**：每次数据更新都要重新生成并提交 `demo/`；演示数据可能落后于最新 `out/`；快照体积约 0.6 MB。
 
-## D30 公开演示用 raw.githack，不启用 GitHub Pages
-- **背景**：GitHub Pages 需要改仓库设置、可能引入构建分支；项目只需要托管一个静态目录。
-- **决定**：主地址用 `https://raw.githack.com/DG-host/education_agent/main/demo/index.html`，备用 jsDelivr；更新靠提交 `demo/`，缓存用 `?v=` 或 commit sha 规避；不改仓库 Pages 设置。
-- **理由**：零配置、直接读仓库文件、支持自定义分支/commit；失败时容易回退到本地 `python -m http.server`。
-- **代价**：依赖第三方 CDN 的可用性与缓存策略；仓库必须保持 public。**边界**：`demo/` 的脱敏只覆盖快照，不改变 `data/raw/`、`data/derived/` 在公开仓库中的可见性；若这些文件不能公开，必须改用独立公开仓库。
+## D30 公开演示由 GitHub Pages 发布，只上传 demo/ 制品
+- **背景**：raw.githack / jsDelivr 在部分网络下不可达或缓存不可控；需要一个稳定、HTTPS、跨平台的公开地址，同时不能把仓库根目录（含 data/raw）整体当站点发布。
+- **决定**：新增 `.github/workflows/pages.yml`，在 push 到 `main` 时把 `demo/` 作为 Pages 制品上传，由 `actions/deploy-pages` 发布到 `https://dg-host.github.io/education_agent/`；仓库 Pages 的 `build_type` 设为 `workflow`，不发布仓库根目录；raw.githack / jsDelivr 仅作备用地址。
+- **理由**：Pages 只发布 `demo/` 这一份静态制品，MIME、相对路径和 HTTPS 都由平台保证；不暴露 `data/`、`out/`、`config/`；更新只需重新生成并推送 `demo/`。
+- **代价**：依赖 GitHub Actions 与 Pages 配额；首次部署或 Actions 故障时需等下一次运行；仓库必须保持 public。**边界**：`demo/` 的脱敏只覆盖快照，不改变 `data/raw/`、`data/derived/` 在公开仓库中的可见性；若这些文件不能公开，必须改用独立公开仓库。

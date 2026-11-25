@@ -46,29 +46,28 @@ python -m http.server 8000 --directory demo
 
 ## 4. 发布到公网
 
-当前推荐用 **raw.githack** 直接托管仓库里的静态文件，不启用 GitHub Pages：
+主地址是 **GitHub Pages**：
 
 ```text
-https://raw.githack.com/DG-host/education_agent/main/demo/index.html
+https://dg-host.github.io/education_agent/
 ```
+
+Pages 由 `.github/workflows/pages.yml` 发布：push 到 `main` 且改动 `demo/` 时，Actions 把 `demo/` 作为制品上传，**不会把仓库根目录（含 data/raw）整体发布**。仓库 Pages 的 `build_type` 必须是 `workflow`。
 
 更新流程：
 
 1. 重新生成 `demo/`；
 2. 提交并推送 `demo/` 到 `main`；
-3. 打开上面的 URL。raw.githack 有 CDN 缓存，若仍是旧快照，可在 URL 后加 `?v=日期`，或改用带 commit sha 的地址：
+3. 等 Actions 的 “Deploy demo to GitHub Pages” 完成，打开上面的 URL。若浏览器仍显示旧页面，强制刷新（Ctrl+F5）。
+
+备用地址（第三方 CDN，可能受网络或缓存影响）：
 
 ```text
-https://raw.githack.com/DG-host/education_agent/<commit-sha>/demo/index.html
-```
-
-备用 CDN：
-
-```text
+https://raw.githack.com/DG-host/education_agent/main/demo/index.html
 https://cdn.jsdelivr.net/gh/DG-host/education_agent@main/demo/index.html
 ```
 
-> 发布前确认仓库为 public；raw.githack 与 jsDelivr 都只读取公开仓库。若仓库改为 private，这两个地址会失效。
+> 发布前确认仓库为 public；Pages 与两个 CDN 都只读取公开仓库。若仓库改为 private，这些地址会失效。
 
 ## 5. 只读与隐私边界
 
@@ -80,7 +79,7 @@ https://cdn.jsdelivr.net/gh/DG-host/education_agent@main/demo/index.html
 
 ## 6. 更新与回滚
 
-- 数据更新：先跑 `run.cmd all` 生成最新 `out/`，再执行 `python src\demo_site.py --out demo`，提交 `demo/`。
+- 数据更新：先跑 `run.cmd all` 生成最新 `out/`，再执行 `python src\demo_site.py --out demo`，提交 `demo/` 并推送；Pages workflow 会自动重新发布。
 - 回滚：`git checkout <旧commit> -- demo` 后重新提交；或直接回退包含 `demo/` 的提交。
 - 检查：`python -m unittest tests.test_demo_site -v`，5 项应全绿；再用 390/1366 宽度各看一遍总览与数据质量页，确认无横向滚动。
 
@@ -90,7 +89,7 @@ https://cdn.jsdelivr.net/gh/DG-host/education_agent@main/demo/index.html
 | --- | --- | --- |
 | 页面一直转圈 | `snapshot.json` 路径不对或未上传 | 确认 `demo/snapshot.json` 与 `index.html` 同级；Network 面板看 404 |
 | 控制台报 CORS/模块加载失败 | 用 `file://` 直接打开 | 用静态服务器或公网 URL |
-| 仍是旧数据 | CDN 缓存 | 加 `?v=` 或使用 commit sha 地址 |
+| 仍是旧数据 | Pages/CDN 缓存 | 强制刷新；确认 Actions 最新一次部署成功 |
 | “此页需要本地版” | 演示版禁用了录入/咨询 | 属预期；本地版用 `run_ui.cmd` 或 EXE |
 | 390 宽出现横向滚动 | 新页面未遵守 `min-width:0` | 检查 `.grid > *` 与 `.stack` 的 `min-width`，补 `minmax(0,1fr)` |
 
@@ -101,5 +100,6 @@ https://cdn.jsdelivr.net/gh/DG-host/education_agent@main/demo/index.html
 - `ui/demo-config.js`：演示开关
 - `ui/js/data.js`、`ui/js/app.js`：演示态分支
 - `ui/css/styles.css`：`.demo-banner` 与 390 宽网格修复
+- `.github/workflows/pages.yml`：GitHub Pages 部署
 - `docs/ui_design.md`：页面与 API 设计
 - `README.md`：运行入口与验收
