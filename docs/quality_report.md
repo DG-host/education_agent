@@ -1,6 +1,6 @@
-# 数据质量报告（第一天基线）
+# 数据质量报告（清洗与质检基线）
 
-> 复跑：`run.cmd`（第 1/4 步）→ 结果落在 `out/qc_report.json` 与 `out/baseline.json`。
+> 复跑：`run.cmd`（智能体 9 步中的 clean/qc 两步）→ 结果落在 `out/qc_report.json`、`out/baseline.json` 与 `out/clean_report.json`。
 > 本文所有数字均为该命令的实际输出，可用 `docs/decisions.md` D5 的两个入口逐一核对。
 
 ## 1. 数据范围
@@ -66,7 +66,7 @@
 
 ```bat
 run.cmd qc        :: 重跑质检，产出 out/qc_report.json、out/baseline.json、out/tables/anomalies.csv
-run.cmd validate  :: 校验三份契约与两份示例
+run.cmd validate  :: 校验五份契约文件（含建议批次与两份单生示例）
 ```
 
 对照材料：`out/tables/anomalies.csv`（7 行）、`data/derived/作答记录_变更记录.csv`（10 行）、

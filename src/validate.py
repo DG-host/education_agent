@@ -29,7 +29,10 @@ DEFAULT_PAIRS = [
     ("diagnosis.schema.json", os.path.join(OUT, "diagnosis_all.json")),
     ("diagnosis.schema.json", os.path.join(EXAMPLES, "diagnosis_D01.json")),
     ("recommendation.schema.json", os.path.join(EXAMPLES, "recommendation_D01.json")),
+    ("recommendation_batch.schema.json", os.path.join(OUT, "recommendations_all.json")),
 ]
+
+BATCH_SCHEMA = "recommendation_batch.schema.json"
 
 
 def check_pair(schema_path, data_path):
@@ -38,6 +41,21 @@ def check_pair(schema_path, data_path):
     validator = jsonschema.Draft7Validator(schema)
     errors = sorted(validator.iter_errors(data), key=lambda e: list(e.absolute_path))
     return errors
+
+
+def check_nested(schema_name, data_path):
+    """批次文件：外层过 schema 后，students 逐项套用单生 schema。"""
+    if os.path.basename(schema_name) != BATCH_SCHEMA:
+        return []
+    data = load_json(data_path)
+    rec_schema = load_json(os.path.join(SCHEMAS, "recommendation.schema.json"))
+    out = []
+    for i, student in enumerate(data.get("students", [])):
+        errors = sorted(jsonschema.Draft7Validator(rec_schema).iter_errors(student),
+                        key=lambda e: list(e.absolute_path))
+        for e in errors:
+            out.append(("students[%d]%s" % (i, pointer(e)), e.message))
+    return out
 
 
 def pointer(err):
@@ -70,12 +88,15 @@ def main(argv=None):
             failed += 1
             continue
         errors = check_pair(schema_path, data_path)
+        nested = check_nested(schema_name, data_path) if not errors else []
         label = os.path.relpath(data_path, ROOT).replace("\\", "/")
-        if errors:
+        if errors or nested:
             failed += 1
-            print("FAIL %s (%d 处)" % (label, len(errors)))
+            print("FAIL %s (%d 处)" % (label, len(errors) + len(nested)))
             for e in errors[:10]:
                 print("  %s %s" % (pointer(e), e.message))
+            for where, message in nested[:10]:
+                print("  %s %s" % (where, message))
         else:
             print("ok   %s" % label)
     if failed:

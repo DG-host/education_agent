@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#0F766E">
+  <meta name="description" content="智慧学伴·教研工作台：学习内容梳理、学情诊断与个性化学习建议的本地可视化工作台。">
+  <meta name="robots" content="noindex,nofollow">
+  <title>智慧学伴 · 教研工作台</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主内容</a>
+
+  <div id="demoBanner" class="demo-banner" hidden>
+    <strong>公开演示</strong>
+    <span>只读分析快照 · 不含学生作答原文与参考答案 · 数据录入与教学咨询需运行本地版</span>
+  </div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="40" height="40" role="img" aria-label="智慧学伴">
+            <rect x="2" y="2" width="36" height="36" rx="11" fill="#0F766E"/>
+            <path d="M11 26.5c3.6-1.2 5.8-3.6 7.2-6.8 1.2-2.8 3.1-4.4 6.2-5.1" fill="none" stroke="#F4F7F7" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="27.5" cy="14" r="2.4" fill="#F4F7F7"/>
+            <circle cx="11" cy="27" r="2.2" fill="#D97706"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong>智慧学伴</strong>
+          <span>教研工作台</span>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <a class="nav-item" href="#/overview" data-route="overview">
+          <span class="nav-icon" data-icon="overview"></span><span>总览</span>
+        </a>
+        <a class="nav-item" href="#/students" data-route="students">
+          <span class="nav-icon" data-icon="students"></span><span>学生画像</span>
+        </a>
+        <a class="nav-item" href="#/cases" data-route="cases">
+          <span class="nav-icon" data-icon="cases"></span><span>典型案例</span>
+        </a>
+        <a class="nav-item" href="#/content" data-route="content">
+          <span class="nav-icon" data-icon="content"></span><span>内容图谱</span>
+        </a>
+        <a class="nav-item" href="#/input" data-route="input">
+          <span class="nav-icon" data-icon="database"></span><span>数据录入</span>
+        </a>
+        <a class="nav-item" href="#/consult" data-route="consult">
+          <span class="nav-icon" data-icon="chat"></span><span>教学咨询</span>
+        </a>
+        <a class="nav-item" href="#/quality" data-route="quality">
+          <span class="nav-icon" data-icon="quality"></span><span>数据质量</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="foot-label">只读快照</div>
+        <div class="foot-value" id="sidebarSnapshot">等待载入…</div>
+        <div class="foot-meta" id="sidebarSource">40 名学生 · 2 个班级</div>
+        <a class="foot-link" href="#/quality">查看运行轨迹与口径 →</a>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="topbar-title" id="topbarTitle">总览</div>
+        <div class="topbar-tools">
+          <label class="search" for="globalSearch">
+            <span class="search-icon" data-icon="search" aria-hidden="true"></span>
+            <input id="globalSearch" type="search" autocomplete="off" spellcheck="false"
+                   placeholder="搜索学生 / 指标 / 材料 / 记录（按 / 聚焦）" aria-label="搜索学生、指标、材料或记录">
+          </label>
+          <div class="snapshot-chip" title="当前快照生成时间">
+            <span class="dot" aria-hidden="true"></span>
+            <span id="topbarSnapshot">快照载入中</span>
+          </div>
+          <button class="btn btn-ghost" type="button" id="refreshBtn" title="重新载入 out/ 快照">
+            <span data-icon="refresh" aria-hidden="true"></span><span>刷新</span>
+          </button>
+          <button class="btn btn-primary" type="button" id="runBtn" title="后台运行现有 9 步流水线">
+            <span data-icon="play" aria-hidden="true"></span><span>重新分析</span>
+          </button>
+        </div>
+      </header>
+
+      <main id="main" class="page" tabindex="-1" aria-live="polite">
+        <div class="loading-panel">
+          <div class="spinner" aria-hidden="true"></div>
+          <p>正在读取分析快照…</p>
+        </div>
+      </main>
+
+      <footer class="page-foot">
+        <span>数据仅用于本赛题 · 不引入真实学生个人信息 · 未观测不等于未掌握</span>
+        <span id="footVersion">ui/1.0</span>
+      </footer>
+    </div>
+  </div>
+
+  <div id="drawer" class="drawer" hidden>
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <section class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" tabindex="-1">
+      <header class="drawer-head">
+        <div>
+          <div class="eyebrow" id="drawerKicker">证据</div>
+          <h2 id="drawerTitle">详情</h2>
+        </div>
+        <button class="icon-btn" type="button" data-close-drawer aria-label="关闭抽屉">
+          <span data-icon="close" aria-hidden="true"></span>
+        </button>
+      </header>
+      <div class="drawer-body" id="drawerBody"></div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><p class="noscript">此工作台需要启用 JavaScript。</p></noscript>
+
+  <script src="demo-config.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

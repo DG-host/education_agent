@@ -8,3 +8,17 @@ desktop.ini
 
 # 每次 run 都会刷新 generated_at 的诊断全量产物：可重建，不入库
 out/diagnosis_all.json
+# 运行痕迹与守卫报告含本次运行时间/哈希，可重建，不作为交付物
+out/agent_trace.json
+out/guard_report.json
+
+# 数据录入副本（含学生作答原文）与历史备份：本地数据，不入库
+data/input/
+
+# 桌面程序构建产物：可重复构建，不入库
+.venv-build/
+build/
+dist/
+*.spec
+# 教学咨询的本地 API Key 配置：只保留 example，实际配置不入库
+config/consult.json

@@ -13,8 +13,13 @@ import io
 import json
 import os
 import re
+import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if getattr(sys, "frozen", False):
+    # PyInstaller onefile：模块 __file__ 在解压目录根部，资源根是 _MEIPASS。
+    ROOT = os.path.abspath(getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__))))
+else:
+    ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "data", "raw")
 DERIVED = os.path.join(ROOT, "data", "derived")
 OUT = os.path.join(ROOT, "out")
